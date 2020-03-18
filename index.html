@@ -4,17 +4,31 @@
         <meta charset="utf-8" />
         <meta name="description" content="Accueil">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="./css/style.css" />
+        <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="./model/teddy.js"></script>
+        <script type="text/javascript" src="./index.js"></script>
         <title>Orinoco</title>
     </head>
 
     <body>
         <header>
-            <img src="images/logo.png" alt="logo orinoco" />
+            <a href ="./index.html"><img src="images/logo.png" alt="logo orinoco" /></a>
             <nav>
-                <a href="./commandes.html">Voir mes commandes</a>
-                <a href="./panier.html">Voir mon panier</a>
-                <a href="./produit.html">Produit</a>
+                <a href="./index.html">Accueil</a>
+                <a href="./panier.html">Mon panier</a>
+                <a href="./commande.html">Mes commandes</a>
+                <div class="menu"></div>
             </nav>
         </header>
+        <section>
+            <h1>Nos ours en peluche faits à la main</h1>
+                <div class="liste_produit">
+                    <a href="./produit.html"><img src ="images/teddy_1.jpg" alt="our en peluche 1"/><p id ="teddy_1" class="nom_produit">/</p><p class="prix">29€</p></a>
+                    <a href="./produit.html"><img src ="images/teddy_2.jpg" alt="our en peluche 2"/><p id ="teddy_2" class="nom_produit">a</p><p class="prix">39€</p></a>
+                    <a href="./produit.html"><img src ="images/teddy_3.jpg" alt="our en peluche 3"/><p id ="teddy_3" class="nom_produit">Lenny and Carl</p><p class="prix">59€</p></a>
+                    <a href="./produit.html"><img src ="images/teddy_4.jpg" alt="our en peluche 4"/><p id ="teddy_4" class="nom_produit">Gustav</p><p class="prix">45€</p></a>
+                    <a href="./produit.html"><img src ="images/teddy_5.jpg" alt="our en peluche 5"/><p id ="teddy_5" class="nom_produit">Garfunkel</p><p class="prix">55€</p></a>
+              </div>
+        </section>
     </body>
+    </html>
