@@ -74,8 +74,77 @@ h1 {
       display: none;  
 }
 
+/* STYLE PANIER */
+
+.formulaire {
+    margin-left: 2rem;
+}
+
+form {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+legend {
+    margin-bottom: 2rem;
+}
+
+input {
+    margin-bottom: 1rem;
+    border: 1px solid rgb(167, 164, 164);
+    border-radius: 4px;
+    width: 20rem;
+    height: 20px;
+}
+
+
+.coord_form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10rem;
+    margin-bottom: 2rem;
+}
+
+.adresse_form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+}
+
+.btn-cde {
+    background-color: var(--main-bg-color);
+    border: 1px solid rgb(167, 164, 164);
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 1rem;
+    max-width: 18rem;
+    text-align: center;
+}
+
+.formulaire a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
 @media (max-width: 599px) {
-    nav {
+   /* nav {
         display: none;
+    } */
+
+    header {
+        flex-direction: column;
+    }
+
+    header a {
+        display: flex;
+        flex-direction: column;
+        line-height: 3rem;
+    }
+
+    header img {
+        margin: auto;
     }
 }

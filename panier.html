@@ -1,24 +1,68 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="description" content="Premier menu">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="./css/style.css" />
-        <title>La note enchantée</title>
-    </head>
 
-    <body>
-        <header>
-            <a href ="./index.html"><img src="images/logo.png" alt="logo orinoco" /></a>
-            <nav>
-                <a href="./index.html">Accueil</a>
-                <a href="./panier.html">Mon panier</a>
-                <a href="./commande.html">Mes commandes</a>
-                <div class="menu"></div>
-            </nav>
-        </header>
-        <section>
-            <h1>Mon panier</h1>
-        </section>
-    </body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Premier menu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>La note enchantée</title>
+</head>
+
+<body>
+    <header>
+        <a href="./index.html"><img src="images/logo.png" alt="logo orinoco" /></a>
+        <nav>
+            <a href="./index.html">Accueil</a>
+            <a href="./panier.html">Mon panier</a>
+            <a href="./commande.html">Mes commandes</a>
+            <div class="menu"></div>
+        </nav>
+    </header>
+    <section>
+        <h1>Mon panier</h1>
+    </section>
+
+    <!-- FORMULAIRE -->
+    <section class="formulaire">
+        <form>
+
+            <div class="coord_form">
+                <legend>Vos coordonnées : </legend>
+
+                <label for="nom">Nom :</label>
+                <input type="text" name="nom" id="nom" required />
+
+                <label for="prenom">Prénom :</label>
+                <input type="text" name="prenom" id="prenom" required />
+
+                <label for="email">E-mail :</label>
+                <input type="email" name="email" id="email" required />
+
+                <label for="phone">Téléphone (optionnel) :</label>
+                <input type="tel" name="phone" id="phone" />
+            </div>
+
+            <div class="adresse_form">
+                <legend class="adresse">Adresse de livraison : </legend>
+
+                <label for="adresse">Adresse :</label>
+                <input type="text" name="adresse" id="adresse" required />
+
+                <label for="adresse">Code postal</label>
+                <input type="number" name="zip" id="zip" required />
+
+                <label for="ville">Ville</label>
+                <input type="text" name="ville" id="ville" required />
+
+                <label for="pays">Pays</label>
+                <input type="text" name="pays" id="pays" required />
+            </div>
+
+        </form>
+
+        <a href="">
+            <div class="btn-cde">Passer la commande</div>
+        </a>
+    </section>
+</body>

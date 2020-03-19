@@ -9,14 +9,18 @@ request.onreadystatechange = function() {
                 var teddyJSON = response[i];
                 console.log(teddyJSON);
 
-                document.getElementById('teddy_1').innerHTML = response[0].name;
-                document.getElementById('teddy_2').innerHTML = response[1].name;
-                document.getElementById('teddy_3').innerHTML = response[2].name;
-                document.getElementById('teddy_4').innerHTML = response[3].name;
-                document.getElementById('teddy_5').innerHTML = response[4].name;
+                document.getElementById('liste').innerHTML += 
+                '<a href="./produit.html/?id=' + response[i]._id + '">' +
+                    '<img src ="' + response[i].imageUrl + '" alt="' + response[i].name + '"/>' +
+                    '<p class="nom_produit">' + response[i].name + '</p>' +
+                    '<p class="prix">' + response[i].price/100 + '€</p>' + 
+                '</a>'
+
                 }
             }
     }
 };
 request.open("GET", "http://localhost:3000/api/teddies/");
 request.send();
+
+
