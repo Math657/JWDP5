@@ -35,11 +35,17 @@ nav a {
     text-decoration: none;
 }
 
+nav a:hover {
+    opacity: 80%;
+}
+
 h1 {
     margin-bottom: 3rem;
     margin-top: 3rem;
     text-align: center;
 }
+
+/* STYLE Accueil */
 
 .liste_produit img {
     width: 20rem;
@@ -54,6 +60,10 @@ h1 {
     text-decoration: none;
 }
 
+.liste_produit a:hover {
+    opacity: 80%;
+}
+
 .liste_produit {
     display: flex;
     flex-direction: row;
@@ -61,7 +71,7 @@ h1 {
     flex-wrap: wrap;
 }
 
-.prix {
+.prix_produit {
     color: rgb(38, 31, 43);
 }
 
@@ -72,6 +82,57 @@ h1 {
 
 .menu {
       display: none;  
+}
+
+/* STYLE PRODUIT */
+
+
+#my_product {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#description {
+    display: flex;
+    flex-direction: column;
+    max-width: 50rem;
+    min-width: 10rem;
+    font-size: 16px;
+}
+
+#nom {
+    font-size: 36px;
+    margin-bottom: 0;
+}
+
+#prix {
+    font-size: 22px;
+    margin-bottom: 1rem;
+}
+
+#colors {
+    margin-bottom: 4rem;
+}
+
+#my_product img {
+    width: 30rem;
+    margin: 1rem;
+}
+
+#my_product a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#my_product a:hover {
+    opacity: 70%;
 }
 
 /* STYLE PANIER */
@@ -129,10 +190,12 @@ input {
     font-weight: bold;
 }
 
+.formulaire a:hover {
+    opacity: 70%;
+}
+
+
 @media (max-width: 599px) {
-   /* nav {
-        display: none;
-    } */
 
     header {
         flex-direction: column;
