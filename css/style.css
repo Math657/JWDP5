@@ -100,12 +100,12 @@ h1 {
 #description {
     display: flex;
     flex-direction: column;
-    max-width: 50rem;
+    max-width: 20rem;
     min-width: 10rem;
     font-size: 16px;
 }
 
-#nom {
+#name {
     font-size: 36px;
     margin-bottom: 0;
 }
@@ -116,7 +116,7 @@ h1 {
 }
 
 #colors {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 #my_product img {
@@ -137,6 +137,11 @@ h1 {
 
 /* STYLE PANIER */
 
+#content img {
+    width: 13rem;
+    margin: 1rem;
+}
+
 .formulaire {
     margin-left: 2rem;
 }
@@ -153,7 +158,7 @@ legend {
 }
 
 input {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     border: 1px solid rgb(167, 164, 164);
     border-radius: 4px;
     width: 20rem;
@@ -182,6 +187,11 @@ input {
     padding: 1rem;
     max-width: 18rem;
     text-align: center;
+    margin-bottom: 1rem;
+}
+
+#btn_order:hover {
+    opacity: 70%;
 }
 
 .formulaire a {

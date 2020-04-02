@@ -20,10 +20,19 @@
     </header>
     <section>
         <h1>Mon panier</h1>
+        <div class="panier_content" id="content"></div>
+        <form id ="shopping_form">
+
+            <!-- SHOPPING TABLE -->
+            <table id = 'items_table'>
+                <tr><th colspan = '3'>Shopping List</th></tr>
+                <tr><th>Produit</th><th>Prix</th><th>Quantité</th><th>Total</th></tr>
+           </table>
+    </form>
     </section>
 
     <!-- FORMULAIRE -->
-    <section class="formulaire">
+    <section class="formulaire" id="form_panier">
         <form>
 
             <div class="coord_form">
@@ -48,24 +57,24 @@
                 <label for="adresse">Adresse :</label>
                 <input type="text" name="adresse" id="adresse" required />
 
-                <label for="adresse">Code postal</label>
+                <label for="adresse">Code postal :</label>
                 <input type="number" name="zip" id="zip" required />
 
-                <label for="ville">Ville</label>
+                <label for="ville">Ville :</label>
                 <input type="text" name="ville" id="ville" required />
 
-                <label for="pays">Pays</label>
+                <label for="pays">Pays :</label>
                 <input type="text" name="pays" id="pays" required />
             </div>
 
         </form>
 
         <a href="">
-            <div class="btn-cde btn_panier">Passer la commande</div>
+            <div id="btn_order" class="btn-cde btn_panier">Passer la commande</div>
         </a>
     </section>
 
     <script type="text/javascript" src="../../function.js"></script>
-    <script type="text/javascript" src="./produit.js"></script>
+    <script type="text/javascript" src="./panier.js"></script>
 </body>
 </html>
