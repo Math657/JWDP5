@@ -26,6 +26,7 @@ header img {
 nav {
     margin-left: 3rem;
     line-height: 6rem;
+    position: relative;
 }
 
 nav a {
@@ -38,6 +39,7 @@ nav a {
 nav a:hover {
     opacity: 80%;
 }
+
 
 h1 {
     margin-bottom: 3rem;
@@ -137,9 +139,21 @@ h1 {
 
 /* STYLE PANIER */
 
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 2rem;
+}
+  
+th, td {
+    padding: 6px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
 #content img {
-    width: 13rem;
-    margin: 1rem;
+    width: 10rem;
+    margin-top: 1rem;
 }
 
 .formulaire {
@@ -179,6 +193,24 @@ input {
     margin-right: 2rem;
 }
 
+.btn-delete {
+    color: black;
+}
+
+.btn-delete:hover {
+    cursor: pointer;
+}
+
+#btn-vider {
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 3rem;
+}
+
+#btn-vider:hover {
+    opacity: 70%;
+}
+
 .btn-cde {
     background-color: var(--main-bg-color);
     border: 1px solid rgb(167, 164, 164);
@@ -188,10 +220,15 @@ input {
     max-width: 18rem;
     text-align: center;
     margin-bottom: 1rem;
+    cursor: pointer;
 }
 
-#btn_order:hover {
+#btn-order:hover {
     opacity: 70%;
+}
+
+#btn-order {
+    font-weight: bold;
 }
 
 .formulaire a {
@@ -204,7 +241,22 @@ input {
     opacity: 70%;
 }
 
+/* Panier vide */
+#panier_vide {
+    text-align: center;
+}
 
+/* Commande */
+#recap {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+#orderId {
+    font-weight: bold;
+}
+
+/* Petit écrans */
 @media (max-width: 599px) {
 
     header {

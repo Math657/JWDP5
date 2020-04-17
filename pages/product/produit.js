@@ -1,11 +1,11 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const myId = urlParams.get('id')
-
-// ID récupéré
-
+// ID dans l'URL récupéré
 
 get("http://localhost:3000/api/teddies/" + myId , function(response) {
+
+            document.title = response.name
 
             document.getElementById('image').innerHTML +=
             '<img src ="' + response.imageUrl + '" alt="' + response.name + '"/>'
@@ -28,32 +28,33 @@ get("http://localhost:3000/api/teddies/" + myId , function(response) {
                 '<a href="../panier/panier.html"><div class="btn-cde btn_produit" id="btn_panier">Ajouter au panier</div></a>'
             '</div>'
 
-            
+            document.getElementById('btn_panier').addEventListener('click', function(event) { // Ajoute le produit dans le panier
+                
+                    var getColor = document.getElementById('colors')
+                    var clrUser = getColor.options[getColor.selectedIndex].text
+                    var cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
-            document.getElementById('btn_panier').addEventListener('click', function(event) {
-                var getColor = document.getElementById('colors')
-                var clrUser = getColor.options[getColor.selectedIndex].text
-
-                class ted {
-                    constructor(name, price, image, color) {
-                        this.name = name
-                        this.price = price
-                        this.image = image
-                        this.color = color
+                    let product = cart.find(product => myId === product.id && clrUser === product.color)
+                    
+                
+                    if (product) {
+                        product.qty ++
                     }
-                }
-                
-                const teddy = {
-                    name: response.name,
-                    price: response.price/100,
-                    image: response.imageUrl,
-                    color: clrUser
-                }
-                
-                window.localStorage.setItem('product', JSON.stringify(teddy))
-                console.log(teddy)
-            })  // Store l'objet "teddy"
-            
+
+                    else {
+                     product = {
+                        name: response.name,
+                        price: response.price/100,
+                        image: response.imageUrl,
+                        color: clrUser,
+                        qty: 1,
+                        id: myId
+                        }
+                    cart.push(product)
+                    }
+                    
+                    localStorage.setItem("cart", JSON.stringify(cart))
+            })          
 })
 
 
