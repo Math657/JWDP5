@@ -2,11 +2,13 @@ var cart = JSON.parse(localStorage.getItem("cart") || "[]");
 var prixTotal = 0
 var ids = []
 
+
+///////////// Affichage du panier //////////////////
 if (typeof(Storage) !== "undefined") {
-    if (window.localStorage.getItem('cart') !== null && window.localStorage.getItem('cart') !== "[]") {
+    if (window.localStorage.getItem('cart') !== null && window.localStorage.getItem('cart') !== "[]") {  // Check si le localStorage a des produits 
         document.getElementById('content').innerHTML += 
             '<table id ="myTable">' +
-            '<tr id="labels"><th>Produit</th><th>Prix</th><th>Quantité</th><th>Total</th><th></th></tr>' +
+            '<tr id="labels"><th>Produit</th><th>Prix</th><th class="full-text">Quantité</th><th class="short-text">Qté<th/><th>Total</th><th></th></tr>' +
             '</table>'
 
                 for (let i = 0; i < cart.length ; i++) {
@@ -15,7 +17,7 @@ if (typeof(Storage) !== "undefined") {
 
                             document.getElementById('myTable').innerHTML += 
                             '<tr id = "ensemble">' +
-                            '<td>' + cart[i].name + '<br>' + '<p>Couleur : ' + cart[i].color + '<br>' + '<img src ="' + cart[i].image + '" alt="' + cart[i].name + '"/></td>' +
+                            '<td><span class="nom_produit">' + cart[i].name + '</span><br>' + '<p>Couleur : ' + cart[i].color + '<br>' + '<img src ="' + cart[i].image + '" alt="' + cart[i].name + '"/></td>' +
                             '<td>' + cart[i].price + '€</td>' +
                             '<td>'+ cart[i].qty + '</td>' +
                             '<td>'+ total + '€</td>' +
@@ -26,17 +28,15 @@ if (typeof(Storage) !== "undefined") {
                             for (let j = 0; j < myBtn.length; j++) {
                                 myBtn[j].addEventListener('click', function() {
 
-                                    var myProduct = cart.find(obj => obj.id === myBtn[j].dataset.id && obj.color === myBtn[j].dataset.color)
-                                    console.log(myProduct)
-                                    var indexFound = cart.indexOf(myProduct)
+                                    var indexFound = cart.findIndex(obj => obj.id === myBtn[j].dataset.id && obj.color === myBtn[j].dataset.color) // Trouve l'index du produit associé au bouton
                             
-                                    if (indexFound > -1) {  
+                                    if (indexFound > -1) {   
                                         if (cart[j].qty > 1) {
                                             cart[j].qty --
                                             localStorage.setItem('cart', JSON.stringify(cart))
                                             location.reload()
                                         }
-                                        else {
+                                        else {    // Retire le produit du panier
                                             cart.splice(indexFound, 1)      
                                             localStorage.setItem('cart', JSON.stringify(cart))
                                             location.reload()
@@ -48,14 +48,14 @@ if (typeof(Storage) !== "undefined") {
                         ids.push(cart[i].id)
                         prixTotal += total 
 
-                        document.getElementById('btn-vider').addEventListener('click', function() {
+                        document.getElementById('btn-vider').addEventListener('click', function() { // Vide le panier
                         window.localStorage.clear()
                         location.reload()
-                    })                   
+                        })                   
                 } 
                 document.getElementById('prixTotal').innerHTML += 'Total : ' + prixTotal + '€'
     }
-    else {
+    else {   
         document.getElementById('form_panier').style.visibility="hidden"
         document.getElementById('content').innerHTML = '<p id= panier_vide>Votre panier est vide.</p>'
     }
@@ -64,9 +64,7 @@ else {
     document.getElementById('content').innerHTML = "Désolé, votre navigateur ne supporte pas le stockage de données..."
 }
 
-////////// Requete POST //////////
-
-document.getElementById('form1').addEventListener('submit', function(e) {
+document.getElementById('form1').addEventListener('submit', function(e) {  /// Valide le formulaire et passe la commande
      
     e.preventDefault()
     const JsonObject = {
@@ -83,20 +81,15 @@ document.getElementById('form1').addEventListener('submit', function(e) {
         products: [ids]
     }
         
-    window.localStorage.setItem('prixTotal', JSON.stringify(prixTotal))
+    postRequest("http://localhost:3000/api/teddies/order", JsonObject)
+    .then(result => {
+        window.localStorage.setItem('orderId', JSON.stringify(result))
+        window.localStorage.setItem('prixTotal', JSON.stringify(prixTotal))
+        window.location.assign("../commande/commande.html")
+    })
+    .catch(error => {
+        console.error(error)
+    })
+})
 
-    var request = new XMLHttpRequest()
-        request.onreadystatechange = function() {
-            if (this.readyState == XMLHttpRequest.DONE && this.status == 200 || this.readyState == XMLHttpRequest.DONE && this.status == 201) {
-                var orderId = JSON.parse(this.responseText)
-                window.localStorage.setItem('orderId', JSON.stringify(orderId))
-            }
-        }
-    request.open("POST", "http://localhost:3000/api/teddies/order")
-    request.setRequestHeader("Content-Type", "application/json")
-    request.send(JSON.stringify(JsonObject))
 
-    setTimeout(function() { 
-        window.location.assign("../commande/commande.html") 
-    }, 2000);
-}) 

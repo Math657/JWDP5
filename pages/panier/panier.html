@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="description" content="Premier menu">
+    <meta name="description" content="Panier">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css" />
     <title>Mon panier</title>
@@ -20,54 +20,55 @@
     </header>
     <section>
         <h1>Mon panier</h1>
-        <div class="panier_content" id="content" id="list"></div>
+        <div class="panier_content" id="content"></div>
     </section>
 
-    
+
     <section class="formulaire" id="form_panier">
         <h3 id="prixTotal"></h3>
         <button class="btn-cde" id="btn-vider">Vider le panier</button>
 
-            <!-- FORMULAIRE -->
+        <!-- FORMULAIRE -->
         <form id="form1">
             <div class="coord_form">
-                <legend>Vos coordonnées : </legend>
+                <p class="legends_form"> Vos coordonnées : </p>
 
-                <label for="lastname">Nom :</label>
+                <label for="nom">Nom :</label>
                 <input type="text" name="lastname" id="nom" required />
 
-                <label for="name">Prénom :</label>
+                <label for="prenom">Prénom :</label>
                 <input type="text" name="name" id="prenom" required />
 
                 <label for="email">E-mail :</label>
                 <input type="email" name="email" id="email" required />
 
                 <label for="phone">Téléphone :</label>
-                <input type="tel" name="phone" id="phone" required/>
+                <input type="tel" name="phone" id="phone" required />
             </div>
 
             <div class="adresse_form">
-                <legend class="adresse">Adresse de livraison : </legend>
+                <p class="legends_form">Adresse de livraison : </p>
 
-                <label for="adress">Adresse :</label>
+                <label for="adresse">Adresse :</label>
                 <input type="text" name="adress" id="adresse" required />
 
                 <label for="zip">Code postal :</label>
-                <input type="number" name="zip" id="zip" pattern="[0-9]" required />
+                <input type="number" name="zip" id="zip" required />
 
-                <label for="city">Ville :</label>
+                <label for="ville">Ville :</label>
                 <input type="text" name="city" id="ville" required />
 
-                <label for="country">Pays :</label>
+                <label for="pays">Pays :</label>
                 <input type="text" name="country" id="pays" required />
             </div>
         </form>
-        
-            <button id="btn-order" class="btn-cde" type="submit" value="submit" form="form1">Passer la commande</button>
-        
+
+        <button id="btn-order" class="btn-cde" type="submit" value="submit" form="form1">Passer la commande</button>
+
     </section>
 
-    <script type="text/javascript" src="../../function.js"></script>
-    <script type="text/javascript" src="./panier.js"></script>
+    <script src="../../function.js"></script>
+    <script src="./panier.js"></script>
 </body>
+
 </html>

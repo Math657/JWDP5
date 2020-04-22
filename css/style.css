@@ -38,6 +38,8 @@ nav a {
 
 nav a:hover {
     opacity: 80%;
+    color: rgb(64, 17, 141);
+    font-weight: bold;
 }
 
 
@@ -83,7 +85,7 @@ h1 {
 }
 
 .menu {
-      display: none;  
+    display: none;
 }
 
 /* STYLE PRODUIT */
@@ -118,7 +120,11 @@ h1 {
 }
 
 #colors {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+#quantity {
+    width: 2.5rem;
 }
 
 #my_product img {
@@ -144,11 +150,16 @@ table {
     width: 80%;
     margin-left: 2rem;
 }
-  
-th, td {
+
+th,
+td {
     padding: 6px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+}
+
+.short-text {
+    display: none;
 }
 
 #content img {
@@ -167,10 +178,6 @@ form {
     flex-wrap: wrap;
 }
 
-legend {
-    margin-bottom: 2rem;
-}
-
 input {
     margin-bottom: 1.5rem;
     border: 1px solid rgb(167, 164, 164);
@@ -184,7 +191,11 @@ input {
     display: flex;
     flex-direction: column;
     margin-right: 10rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+.legends_form {
+    font-weight: bold;
 }
 
 .adresse_form {
@@ -210,6 +221,7 @@ input {
 #btn-vider:hover {
     opacity: 70%;
 }
+
 
 .btn-cde {
     background-color: var(--main-bg-color);
@@ -256,11 +268,16 @@ input {
     font-weight: bold;
 }
 
+.totalPayed {
+    font-weight: bold;
+}
+
 /* Petit écrans */
 @media (max-width: 599px) {
 
     header {
         flex-direction: column;
+        min-width: 410px
     }
 
     header a {
@@ -271,5 +288,30 @@ input {
 
     header img {
         margin: auto;
+    }
+
+    /* ACCUEIL */
+
+    .liste_produit img {
+        width: 15rem;
+        margin-top: 1rem;
+        box-shadow: 2px 2px 10px rgb(201, 200, 200);
+    }
+
+    /* PRODUIT */
+
+    #my_product img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* PANIER */
+
+    .short-text {
+        display: inline-block;
+    }
+
+    .full-text {
+        display: none;
     }
 }
