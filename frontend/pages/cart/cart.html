@@ -11,24 +11,24 @@
 
 <body>
     <header>
-        <a href="../accueil/index.html"><img src="../../images/logo.png" alt="logo orinoco" /></a>
+        <a href="../index/index.html"><img src="../../../images/logo.png" alt="logo orinoco" /></a>
         <nav>
-            <a href="../accueil/index.html">Accueil</a>
-            <a href="panier.html">Mon panier</a>
+            <a href="../index/index.html">Accueil</a>
+            <a href="cart.html">Mon panier</a>
             <div class="menu"></div>
         </nav>
     </header>
     <section>
         <h1>Mon panier</h1>
-        <div class="panier_content" id="content"></div>
+        <div class="cart_content" id="content"></div>
     </section>
 
 
-    <section class="formulaire" id="form_panier">
-        <h3 id="prixTotal"></h3>
-        <button class="btn-cde" id="btn-vider">Vider le panier</button>
+    <section class="form" id="cart_form">
+        <h3 id="totalPrice"></h3>
+        <button class="btn-order" id="btn-clear">Vider le panier</button>
 
-        <!-- FORMULAIRE -->
+        <!-- form -->
         <form id="form1">
             <div class="coord_form">
                 <p class="legends_form"> Vos coordonnées : </p>
@@ -63,12 +63,12 @@
             </div>
         </form>
 
-        <button id="btn-order" class="btn-cde" type="submit" value="submit" form="form1">Passer la commande</button>
+        <button id="btn-order" class="btn-order" type="submit" value="submit" form="form1">Passer la commande</button>
 
     </section>
 
     <script src="../../function.js"></script>
-    <script src="./panier.js"></script>
+    <script src="./cart.js"></script>
 </body>
 
 </html>

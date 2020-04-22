@@ -51,35 +51,35 @@ h1 {
 
 /* STYLE Accueil */
 
-.liste_produit img {
+.list_products img {
     width: 20rem;
     margin-top: 1rem;
     box-shadow: 2px 2px 10px rgb(201, 200, 200);
 }
 
-.liste_produit a {
+.list_products a {
     margin-bottom: 2rem;
     margin-right: 1rem;
     margin-left: 1rem;
     text-decoration: none;
 }
 
-.liste_produit a:hover {
+.list_products a:hover {
     opacity: 80%;
 }
 
-.liste_produit {
+.list_products {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
-.prix_produit {
+.product_price {
     color: rgb(38, 31, 43);
 }
 
-.nom_produit {
+.product_name {
     color: var(--produit-color);
     font-weight: bold;
 }
@@ -114,7 +114,7 @@ h1 {
     margin-bottom: 0;
 }
 
-#prix {
+#price {
     font-size: 22px;
     margin-bottom: 1rem;
 }
@@ -167,7 +167,7 @@ td {
     margin-top: 1rem;
 }
 
-.formulaire {
+.form {
     margin-left: 2rem;
 }
 
@@ -212,18 +212,18 @@ input {
     cursor: pointer;
 }
 
-#btn-vider {
+#btn-clear {
     cursor: pointer;
     font-size: 16px;
     margin-bottom: 3rem;
 }
 
-#btn-vider:hover {
+#btn-clear:hover {
     opacity: 70%;
 }
 
 
-.btn-cde {
+.btn-order {
     background-color: var(--main-bg-color);
     border: 1px solid rgb(167, 164, 164);
     border-radius: 10px;
@@ -243,18 +243,18 @@ input {
     font-weight: bold;
 }
 
-.formulaire a {
+.form a {
     text-decoration: none;
     color: black;
     font-weight: bold;
 }
 
-.formulaire a:hover {
+.form a:hover {
     opacity: 70%;
 }
 
 /* Panier vide */
-#panier_vide {
+#empty_cart {
     text-align: center;
 }
 
@@ -292,7 +292,7 @@ input {
 
     /* ACCUEIL */
 
-    .liste_produit img {
+    .list_products img {
         width: 15rem;
         margin-top: 1rem;
         box-shadow: 2px 2px 10px rgb(201, 200, 200);
