@@ -1,6 +1,7 @@
 if (window.localStorage.getItem('orderId') != null) {
     var payed = JSON.parse(localStorage.getItem('totalPrice'))
     var myOrderId = JSON.parse(localStorage.getItem('orderId'))
+    
     document.getElementById('recap').innerHTML += 
     '<h3>Merci pour votre commande!</h3>' +
     '<p>Voici votre numéro de commande : <span id="orderId">' + myOrderId.orderId + '</span></p>' +

@@ -30,7 +30,7 @@ const postRequest = (url, body) => new Promise((resolve, reject) => { // Requêt
     request.send(JSON.stringify(body))
 })
 
-const getList = (data) => {  // Page d'accueil
+const getList = (data) => {  // Affiche les produits sur la page d'accueil
     if (Array.isArray(data)) { 
         for (let i= 0; i < data.length; i++) {
 
@@ -44,12 +44,12 @@ const getList = (data) => {  // Page d'accueil
     }
 }
 
-const getImg = (data) => {  // Image pour la page produit
+const getImg = (data) => {  // Affiche l'image pour la page produit
         document.getElementById('image').innerHTML +=
             '<img src ="' + data.imageUrl + '" alt="' + data.name + '"/>'
 }
 
-const getDescription = (data) => {  // Description pour la page produit
+const getDescription = (data) => {  // Affiche la description complète (nom, prix, couleur, quantité et description) pour la page produit
     document.getElementById('description').innerHTML +=
             '<div>' +
             '<p class="product_name" id="name">' + data.name + '</p>' +
@@ -133,7 +133,7 @@ const removeFromCart = (cart) => {
     }  
 }
 
-const displayCartTable = (cart) => {
+const displayCartTable = (cart) => {  // Affiche le contenu du panier dans un tableau
     for (let i = 0; i < cart.length ; i++) {
 
         var total = cart[i].price * cart[i].qty   

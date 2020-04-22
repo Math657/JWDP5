@@ -2,7 +2,6 @@ var cart = JSON.parse(localStorage.getItem("cart") || "[]");
 var totalPrice = 0
 var ids = []
 
-///////////// Affichage du panier //////////////////
 if (typeof(Storage) !== "undefined") {
     if (window.localStorage.getItem('cart') !== null && window.localStorage.getItem('cart') !== "[]") {  // Vérifie si le localStorage a des produits dans cart
         document.getElementById('content').innerHTML += 
@@ -24,7 +23,7 @@ else {
     document.getElementById('content').innerHTML = "Désolé, votre navigateur ne supporte pas le stockage de données..."
 }
 
-document.getElementById('form1').addEventListener('submit', function(e) {  /// Valide le formulaire et passe la commande
+document.getElementById('form1').addEventListener('submit', function(e) {  /// Valide le formulaire et passe la commande si il est correcte
      
     e.preventDefault()
     const JsonObject = {
