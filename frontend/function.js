@@ -87,23 +87,16 @@ const addToCart = (data) => { // Ajoute le produit dans le panier
 
         var getColor = document.getElementById('colors')
         var clrUser = getColor.options[getColor.selectedIndex].text
-        var cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        var cart = JSON.parse(localStorage.getItem("cart") || "[]")
 
-        let product = cart.find(product => myId === product.id && clrUser === product.color)
+        let newTed = cart.find(newTed => myId === newTed.id && clrUser === newTed.color)
 
-
-        if (product) {
-            product.qty += checkQty()
-        } else {
-            product = {
-                name: data.name,
-                price: data.price / 100,
-                image: data.imageUrl,
-                color: clrUser,
-                qty: checkQty(),
-                id: myId
-            }
-            cart.push(product)
+        if (newTed) {
+            newTed.quantity += checkQty()
+        }
+        else { 
+            let newTed = new Teddy(myId, data.name, data.price/100, data.description, data.imageUrl, clrUser, checkQty())
+            cart.push(newTed)
         }
 
         localStorage.setItem("cart", JSON.stringify(cart))
@@ -118,8 +111,8 @@ const removeFromCart = (cart) => {
             var indexFound = cart.findIndex(obj => obj.id === myBtn[j].dataset.id && obj.color === myBtn[j].dataset.color) // Trouve l'index du produit associé au bouton
     
             if (indexFound > -1) {   
-                if (cart[j].qty > 1) {
-                    cart[j].qty --
+                if (cart[j].quantity > 1) {
+                    cart[j].quantity --
                     localStorage.setItem('cart', JSON.stringify(cart))
                     location.reload()
                 }
@@ -136,13 +129,13 @@ const removeFromCart = (cart) => {
 const displayCartTable = (cart) => {  // Affiche le contenu du panier dans un tableau
     for (let i = 0; i < cart.length ; i++) {
 
-        var total = cart[i].price * cart[i].qty   
+        var total = cart[i].price * cart[i].quantity   
 
                 document.getElementById('myTable').innerHTML += 
                 '<tr id = "ensemble">' +
-                '<td><span class="product_name">' + cart[i].name + '</span><br>' + '<p>Couleur : ' + cart[i].color + '<br>' + '<img src ="' + cart[i].image + '" alt="' + cart[i].name + '"/></td>' +
+                '<td><span class="product_name">' + cart[i].name + '</span><br>' + '<p>Couleur : ' + cart[i].color + '<br>' + '<img src ="' + cart[i].imageUrl + '" alt="' + cart[i].name + '"/></td>' +
                 '<td>' + cart[i].price + '€</td>' +
-                '<td>'+ cart[i].qty + '</td>' +
+                '<td>'+ cart[i].quantity + '</td>' +
                 '<td>'+ total + '€</td>' +
                 '<td><button data-id= "' + cart[i].id + '" data-color= "' + cart[i].color + '" class = "btn-delete">Retirer du panier</button></td>' +
                 '</tr>'
